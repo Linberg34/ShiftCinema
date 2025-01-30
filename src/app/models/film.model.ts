@@ -4,8 +4,16 @@ export interface Film {
     originalName: string;
     description: string;
     releaseDate: string;
-    actors: Person[];
-    directors: Person[];
+    actors: {
+        id: string;
+        professions: string;
+        fullName: string;
+    }[];
+    directors: {
+        id: string;
+        professions: string;
+        fullName: string;
+    }[];
     runtime: number;
     ageRating: string;
     genres: string[];
@@ -14,7 +22,12 @@ export interface Film {
         imdb: string;
     };
     img: string;
-    country: Country;
+    country: {
+        name: string;
+        code: string;
+        code2: string;
+        id: number;
+    };
 }
 
 export interface Person {

@@ -1,11 +1,15 @@
 .card {
+
+    @include reset-outline;
+
     width: 300px;
-    height:500px;
+    height: 500px;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: $Btn-Radius;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     display: flex;
+
     flex-direction: column;
     justify-content: space-between;
     background-color: #fff;
@@ -17,31 +21,52 @@
     }
 }
 
+.cardImage {
+    position: relative;
+}
+
+.imgLabel {
+    color:$Text-Primary;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: $BG-Secondary;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 8px 8px 16px 8px;
+    gap:4px;
+    border-top-left-radius: 8px;
+}
+
 .cardImage img {
+
+    @include reset-outline;
+
     width: 298.67px;
     height: 300px;
     border-bottom: 1px solid #ddd;
 }
 
 .cardDescription {
-    padding: 15px;
+    gap: 4px;
     text-align: center;
 
     .cardTitle {
         font-size: 1.2rem;
         font-weight: bold;
+        color: $Text-Primary;
         margin: 10px 0;
     }
 
     .cardSubTitle {
         font-size: 1rem;
-        color: #666;
+        color: $Text-Tertiary;
         margin-bottom: 10px;
     }
 
     .ratingSource {
         margin-top: 10px;
-        font-size: 0.9rem;
+        font-size: 14px;
 
         span {
             display: block;
@@ -50,6 +75,8 @@
 }
 
 .cardBody {
+    @include reset-outline;
+
     padding: 15px;
-    flex-grow: 1; 
+    flex-grow: 1;
 }

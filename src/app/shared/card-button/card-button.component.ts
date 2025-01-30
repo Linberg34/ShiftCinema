@@ -4,7 +4,7 @@ import { Component, Input, ViewEncapsulation} from '@angular/core';
   selector: 'app-card-button',
   imports: [],
   templateUrl: './card-button.component.html',
-  styleUrl: './card-button.component.scss'
+  styleUrls: ['./card-button.component.scss','../../environment/_variables.scss']
 })
 
 export class CardButtonComponent {

@@ -2,24 +2,27 @@
     <div class="cardBody">
         <div class="cardImage">
             <img [src]="movie.img" alt="" class="cardImage">
-        </div>
-        <div class="cardDescription">
-            <div class="cardDescriptionText">
-                <h3 class="cardTitle">{{ movie.name}}</h3>
-                <h4 class="cardSubTitle"></h4>
+            <div class="imgLabel">
+                {{ movie.genres[0] }}, {{ movie.country.name }}, {{ movie.releaseDate }}
             </div>
-            <div class="cardRating">
-                <ol class="cardRatingList">
+        </div>
+    </div>
+    <div class="cardDescription">
+        <div class="cardDescriptionText">
+            <h3 class="cardTitle">{{ movie.name}}</h3>
+            <h4 class="cardSubTitle">Фильм</h4>
+        </div>
+        <div class="cardRating">
+            <ol class="cardRatingList">
 
-                </ol>
-                <div class="ratingSource">
-                    <span>Кинопоиск: {{ movie.userRatings.kinopoisk }}</span>
-                    <span>IMDB: {{ movie.userRatings.imdb }}</span>
-                </div>
+            </ol>
+            <div class="ratingSource">
+                <span>Кинопоиск: {{ movie.userRatings.kinopoisk }}</span>
+                <span>IMDB: {{ movie.userRatings.imdb }}</span>
             </div>
         </div>
     </div>
-    <div class="cardButton">
-        <app-card-button text="Подробнее"></app-card-button>
-    </div>
+</div>
+<div class="cardButton">
+    <app-card-button text="Подробнее"></app-card-button>
 </div>
