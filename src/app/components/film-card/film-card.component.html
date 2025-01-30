@@ -1,0 +1,25 @@
+<div class="card">
+    <div class="cardBody">
+        <div class="cardImage">
+            <img [src]="movie.img" alt="" class="cardImage">
+        </div>
+        <div class="cardDescription">
+            <div class="cardDescriptionText">
+                <h3 class="cardTitle">{{ movie.name}}</h3>
+                <h4 class="cardSubTitle"></h4>
+            </div>
+            <div class="cardRating">
+                <ol class="cardRatingList">
+
+                </ol>
+                <div class="ratingSource">
+                    <span>Кинопоиск: {{ movie.userRatings.kinopoisk }}</span>
+                    <span>IMDB: {{ movie.userRatings.imdb }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cardButton">
+        <app-card-button text="Подробнее"></app-card-button>
+    </div>
+</div>
