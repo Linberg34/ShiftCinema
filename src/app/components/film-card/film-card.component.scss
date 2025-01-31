@@ -1,0 +1,157 @@
+@import '../../environment/_variables';
+
+
+.card {
+    border: none;
+    outline: none;
+    width: 300px;
+    height: 500px;
+    border-radius: $Btn-Radius;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    background-color: #fff;
+    transition: transform 0.2s, box-shadow 0.2s;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
+
+.cardBody {
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    flex-grow: 1;
+}
+
+.imgLabel {
+    color: $Text-Primary;
+    position: absolute;
+    text-align: center;
+    bottom: 0px;
+    right: 0px;
+    background-color: $BG-Secondary;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 8px 16px 8px 16px;
+    border-top-left-radius: 8px;
+}
+
+.cardImage {
+    border: none;
+    outline: none;
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.cardImage img {
+
+    border: none;
+    outline: none;
+    width: 100%;
+    border-radius: $Btn-Radius $Btn-Radius 0 $Btn-Radius;
+}
+
+.cardDescription {
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: space-between;
+    flex-grow: 1;
+
+    .cardTitle {
+        font-family: 'Inter', sans-serif;
+        font-weight: bold;
+        font-size: 20px;
+        word-wrap: break-word;
+        line-height: 24px;
+        color: $Text-Primary;
+        margin: 0px;
+        white-space: nowrap;
+        max-width: 100%;
+        &.marquee {
+            animation: marquee 5s linear infinite;
+            display: inline-block;
+        }
+    
+        &:not(.marquee) {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        @keyframes marquee {
+            0% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(10%);
+            }
+        }
+    }
+
+    .cardSubTitle {
+        font-family: 'Inter', sans-serif;
+        flex-direction: column;
+        font-size: 14px;
+        height: 20px;
+        margin: 5px 0;
+        color: $Text-Tertiary;
+    }
+
+    .cardRating {
+        gap: 4px;
+
+        .cardRatingList {
+            margin: 0px;
+            width: 120px;
+            height: 24px;
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 4px;
+        }
+
+        .cardRatingList li {
+            font-size: 24px;
+            color: #ccc;
+            position: relative;
+        }
+
+        .star-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .star-empty {
+            color: #ccc;
+        }
+
+        .star-filled {
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #FFB219;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .ratingSource {
+            margin-top: 10px;
+            font-size: 14px;
+
+            span {
+                font-family: 'Inter', sans-serif;
+                color: $Text-Tertiary;
+                display: block;
+            }
+        }
+    }
+
+}

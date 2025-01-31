@@ -1,0 +1,14 @@
+$Bg-Primary:#FFFFFF;
+$BG-Secondary:#F5F5F8;
+
+$Text-Primary:#141C24;
+$Text-Tertiary:#637083;
+$Text-Secondary:#344051;
+
+
+$Btn-Radius:8px;
+
+@mixin reset-outline {
+    border: none;
+    outline: none;
+}

@@ -1,0 +1,16 @@
+@import '../../environment/_variables';
+
+.moviesList {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    justify-items: center;
+}
+.moviesHeader{
+    font-weight: 700;
+    line-height: 32px;
+    font-size: 24px;
+    font-family: 'Inter', sans-serif;
+    color:$Text-Primary;
+    margin-left: 32px;
+}
