@@ -1,0 +1,47 @@
+@import '../../environment/_variables';
+
+.header {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 22px 22px;
+    gap: 32px;
+    background-color: $Bg-Primary;
+    border-bottom: 1px solid #e0e0e0;
+
+    .logo img {
+        height: 40px;
+    }
+
+    .nav {
+        display: flex;
+        gap: 32px;
+
+        .navLink {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            line-height: 24px;
+            font-weight: 500;
+            color: $Text-Secondary;
+            text-decoration: none;
+
+            &:hover {
+                color: #6a4bc4;
+            }
+
+            .navText {
+                height: 24px;
+                width: auto;
+                font-family: 'Inter', sans-serif;
+                font-size: 16px;
+                text-decoration: none;
+            }
+
+            img {
+                height: 24px;
+                width: 24px;
+            }
+        }
+    }
+}

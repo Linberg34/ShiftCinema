@@ -4,11 +4,11 @@ import { FilmCardComponent } from '../../components/film-card/film-card.componen
 import { Film } from '../../models/film.model';
 import { OnInit } from '@angular/core';
 import { FilmService } from '../../services/film.service';
-import { CardButtonComponent } from '../../shared/card-button/card-button.component';
+import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule,FilmCardComponent, CardButtonComponent],
+  imports: [CommonModule,FilmCardComponent,  HeaderComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
