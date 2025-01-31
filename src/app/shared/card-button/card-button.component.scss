@@ -1,6 +1,8 @@
+@import '../../environment/_variables';
+
 button {
-    
-    @include reset-outline;
+    border: none;
+    outline: none;
     width: 100%;
     text-align: center;
     border-radius: $Btn-Radius;

@@ -1,82 +1,129 @@
+@import '../../environment/_variables';
+
+
 .card {
-
-    @include reset-outline;
-
+    border: none;
+    outline: none;
     width: 300px;
     height: 500px;
-    border: 1px solid #ddd;
     border-radius: $Btn-Radius;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
     display: flex;
-
     flex-direction: column;
     justify-content: space-between;
+    gap:16px;
     background-color: #fff;
     transition: transform 0.2s, box-shadow 0.2s;
 
     &:hover {
         transform: translateY(-5px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-}
-
-.cardImage {
-    position: relative;
-}
-
-.imgLabel {
-    color:$Text-Primary;
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background-color: $BG-Secondary;
-    font-size: 14px;
-    line-height: 14px;
-    padding: 8px 8px 16px 8px;
-    gap:4px;
-    border-top-left-radius: 8px;
-}
-
-.cardImage img {
-
-    @include reset-outline;
-
-    width: 298.67px;
-    height: 300px;
-    border-bottom: 1px solid #ddd;
-}
-
-.cardDescription {
-    gap: 4px;
-    text-align: center;
-
-    .cardTitle {
-        font-size: 1.2rem;
-        font-weight: bold;
-        color: $Text-Primary;
-        margin: 10px 0;
-    }
-
-    .cardSubTitle {
-        font-size: 1rem;
-        color: $Text-Tertiary;
-        margin-bottom: 10px;
-    }
-
-    .ratingSource {
-        margin-top: 10px;
-        font-size: 14px;
-
-        span {
-            display: block;
-        }
     }
 }
 
 .cardBody {
-    @include reset-outline;
-
-    padding: 15px;
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:16px;
     flex-grow: 1;
+}
+
+.imgLabel {
+    color: $Text-Primary;
+    position: absolute;
+    text-align: center;
+    bottom: 0px;
+    right: 0px;
+    background-color: $BG-Secondary;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 8px 16px 8px 16px;
+    border-top-left-radius: 8px;
+}
+
+.cardImage {
+    border: none;
+    outline: none;
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.cardImage img {
+
+    border: none;
+    outline: none;
+    width: 100%;
+    border-radius: $Btn-Radius $Btn-Radius 0 $Btn-Radius;
+}
+
+.cardDescription {
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+
+    .cardTitle {
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 24px;
+        color: $Text-Primary;
+        margin: 0px;
+    }
+
+    .cardSubTitle {
+        flex-direction: column;
+        font-size: 14px;
+        height: 20px;
+        margin: 5px 0;
+        color: $Text-Tertiary;
+    }
+    .cardRating{
+        gap:4px;
+
+        .cardRatingList {
+            margin: 0px;
+            width: 120px;
+            height: 24px;
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 4px;
+        }
+    
+        .cardRatingList li {
+            font-size: 24px;
+            color: #ccc;
+            position: relative;
+        }
+    
+        .star-container {
+            position: relative;
+            display: inline-block;
+        }
+    
+        .star-empty {
+            color: #ccc;
+        }
+    
+        .star-filled {
+            position: absolute;
+            top: 0;
+            left: 0;
+            color:#FFB219;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+    
+        .ratingSource {
+            margin-top: 10px;
+            font-size: 14px;
+    
+            span {      
+            color: $Text-Tertiary;
+                display: block;
+            }
+        }
+    }
+    
 }

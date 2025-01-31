@@ -3,26 +3,35 @@
         <div class="cardImage">
             <img [src]="movie.img" alt="" class="cardImage">
             <div class="imgLabel">
-                {{ movie.genres[0] }}, {{ movie.country.name }}, {{ movie.releaseDate }}
+                {{ movie.genres[0] }}
+                <br>
+                {{ movie.country.name }}, {{ releaseYear }}
             </div>
         </div>
-    </div>
-    <div class="cardDescription">
-        <div class="cardDescriptionText">
-            <h3 class="cardTitle">{{ movie.name}}</h3>
-            <h4 class="cardSubTitle">Фильм</h4>
-        </div>
-        <div class="cardRating">
-            <ol class="cardRatingList">
 
-            </ol>
-            <div class="ratingSource">
-                <span>Кинопоиск: {{ movie.userRatings.kinopoisk }}</span>
-                <span>IMDB: {{ movie.userRatings.imdb }}</span>
+        <div class="cardDescription">
+            <div class="cardDescriptionText">
+                <h3 class="cardTitle">{{ movie.name}}</h3>
+                <h4 class="cardSubTitle">Фильм</h4>
+            </div>
+            <div class="cardRating">
+                <ol class="cardRatingList">
+                    <li *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+                        <div class="star-container">
+                            <span class="star-empty">★</span>
+                            <span class="star-filled" [style.width.%]="getStarFillPercentage(i)">★</span>
+                        </div>
+                    </li>
+                </ol>
+                <div class="ratingSource">
+                    <span>Кинопоиск - {{ movie.userRatings.kinopoisk }}</span>
+                    <span>IMDB - {{ movie.userRatings.imdb }}</span>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="cardButton">
-    <app-card-button text="Подробнее"></app-card-button>
+
+    <div class="cardButton">
+        <app-card-button text="Подробнее"></app-card-button>
+    </div>
 </div>
