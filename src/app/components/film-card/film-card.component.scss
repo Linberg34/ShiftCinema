@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap:16px;
+    gap: 16px;
     background-color: #fff;
     transition: transform 0.2s, box-shadow 0.2s;
 
@@ -25,7 +25,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap:16px;
+    gap: 16px;
     flex-grow: 1;
 }
 
@@ -62,24 +62,51 @@
     text-align: start;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    justify-content: space-between;
+    flex-grow: 1;
 
     .cardTitle {
+        font-family: 'Inter', sans-serif;
         font-weight: bold;
         font-size: 20px;
+        word-wrap: break-word;
         line-height: 24px;
         color: $Text-Primary;
         margin: 0px;
+        white-space: nowrap;
+        max-width: 100%;
+        &.marquee {
+            animation: marquee 5s linear infinite;
+            display: inline-block;
+        }
+    
+        &:not(.marquee) {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        @keyframes marquee {
+            0% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(10%);
+            }
+        }
     }
 
     .cardSubTitle {
+        font-family: 'Inter', sans-serif;
         flex-direction: column;
         font-size: 14px;
         height: 20px;
         margin: 5px 0;
         color: $Text-Tertiary;
     }
-    .cardRating{
-        gap:4px;
+
+    .cardRating {
+        gap: 4px;
 
         .cardRatingList {
             margin: 0px;
@@ -90,40 +117,41 @@
             display: flex;
             gap: 4px;
         }
-    
+
         .cardRatingList li {
             font-size: 24px;
             color: #ccc;
             position: relative;
         }
-    
+
         .star-container {
             position: relative;
             display: inline-block;
         }
-    
+
         .star-empty {
             color: #ccc;
         }
-    
+
         .star-filled {
             position: absolute;
             top: 0;
             left: 0;
-            color:#FFB219;
+            color: #FFB219;
             overflow: hidden;
             white-space: nowrap;
         }
-    
+
         .ratingSource {
             margin-top: 10px;
             font-size: 14px;
-    
-            span {      
-            color: $Text-Tertiary;
+
+            span {
+                font-family: 'Inter', sans-serif;
+                color: $Text-Tertiary;
                 display: block;
             }
         }
     }
-    
+
 }
