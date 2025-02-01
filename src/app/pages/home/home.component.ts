@@ -19,7 +19,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.filmService.getFilms().subscribe({
+
       next: (film) => {
+        
         this.movies =film; 
       },
       error: (err) => console.error('Ошибка при загрузке фильмов:', err),

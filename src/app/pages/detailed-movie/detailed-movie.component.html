@@ -1,0 +1,84 @@
+<app-header></app-header>
+
+<div class="item-menu">
+    <a [routerLink]="'/'" class="back-button">
+        <img src="/ArrowLeft.png" alt="Назад">
+        <span class="item-menu-text">Назад</span>
+    </a>
+</div>
+
+<div class="content" *ngIf="filmDetails; else loading">
+    <div class="movie-details">
+        <div class="movie-img">
+            <img [src]="filmDetails.img" alt="Постер фильма" class="movie-image">
+            <div class="imgLabel">
+                {{ filmDetails.genres[0] }}
+                <br>
+                {{ filmDetails.country.name }}, {{ releaseYear }}
+            </div>
+        </div>
+        <div class="movie-details-text">
+            <div class="movie-title">
+                <h3 class="movie-name">{{ filmDetails.name }} ({{ getAgeRating(filmDetails.ageRating) }})</h3>
+                <h4 class="movie-subtitle">Фильм</h4>
+            </div>
+            <div class="movie-rating">
+                <ol class="cardRatingList">
+                    <li *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+                        <div class="star-container">
+                            <span class="star-empty">★</span>
+                            <span class="star-filled" [style.width.%]="getStarFill(i)">★</span>
+                        </div>
+                    </li>
+                </ol>
+                <div class="rating-source">
+                    <span>Кинопоиск - {{ filmDetails.userRatings.kinopoisk }}</span>
+                    <span>IMDB - {{ filmDetails.userRatings.imdb }}</span>
+                </div>
+            </div>
+            <div class="movie-description">
+                {{ filmDetails.description }}
+            </div>
+        </div>
+    </div>
+
+    <div class="schedule-block">
+        <h2 class="schedule-title">Расписание</h2>
+
+        <div class="week-block">
+            <button class="day-button" *ngFor="let day of schedule" (click)="selectDate(day.date)"
+                [ngClass]="{'selected': isSelectedDate(day.date)}">
+                {{ day.date }}
+            </button>
+        </div>
+
+
+        <div class="time-block" *ngIf="groupSeancesByHall().length > 0">
+            <div class="hall-block" *ngFor="let hall of groupSeancesByHall()">
+                <h3 class="hall-title">{{ hall.hallName }} зал</h3>
+                <div class="times">
+                    <button class="time-button" *ngFor="let time of hall.times"
+                        (click)="selectSeance(hall.hallName, time)"
+                        [ngClass]="{'selected': isSelectedSeance(hall.hallName, time)}">
+                        {{ time }}
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <div *ngIf="getSeancesForSelectedDate().length === 0">
+            <p>Сеансы недоступны для выбранной даты.</p>
+        </div>
+
+        <div class="schedule-button">
+            <app-card-button [route]="'/movie/' + filmId" text="Продолжить"></app-card-button>
+        </div>
+    </div>
+
+
+</div>
+
+<ng-template #loading>
+    <p>Загрузка...</p>
+</ng-template>
