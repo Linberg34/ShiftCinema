@@ -177,23 +177,32 @@
 
 .week-block {
     display: flex;
+    
     gap: 10px;
+    width: fit-content;
+    border-radius: $Btn-Radius;
+    background-color: #CED2DA;
     flex-wrap: wrap;
     margin-bottom: 20px;
 }
 
 .day-button {
+    border: none;
+    outline: none;
     padding: 10px 16px;
     font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: $Bg-Primary;
+    border-radius: $Btn-Radius;
+    color:$Text-Tertiary;
+    background-color: #CED2DA;
     cursor: pointer;
     &.selected {
-        background-color: #97A1AF;
-        color: $Bg-Primary;
+        
+    border: 2px solid #ccc;
+        background-color: $Bg-Primary;
+        color: $Text-Primary;
     }
 }
+
 
 .day-button.active {
     background-color: $Bg-Primary;
