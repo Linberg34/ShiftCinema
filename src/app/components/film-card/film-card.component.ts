@@ -2,6 +2,14 @@ import { AfterViewInit, Component, Input,ElementRef,ChangeDetectorRef,OnInit } f
 import { CardButtonComponent } from '../../shared/card-button/card-button.component';
 import { Film } from '../../models/film.model';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute} from '@angular/router';
+
+
+import {
+  getRatingStars,
+  getStarFillPercentage,
+  getAgeRating
+} from '../../utils/utils.rating';
 
 
 @Component({
@@ -14,49 +22,31 @@ import { CommonModule } from '@angular/common';
 export class FilmCardComponent implements OnInit, AfterViewInit {
   @Input() movie!: Film;
   releaseYear!: string;
-  isMarquee:boolean =false;
+  isMarquee: boolean = false;
+  filmId!: string;
 
-  constructor(private el: ElementRef, private cdr: ChangeDetectorRef) {}
+  constructor(private el: ElementRef, private cdr: ChangeDetectorRef, private route: ActivatedRoute) {}
 
   ngAfterViewInit(): void {
     const titleElement = this.el.nativeElement.querySelector('.cardTitle');
     if (titleElement.scrollWidth > titleElement.clientWidth) {
       this.isMarquee = true;
-      this.cdr.detectChanges(); // Уведомляем Angular о необходимости обновления
+      this.cdr.detectChanges(); 
     }
   }
 
   getRatingStars(rating: string): number {
-    const numericRating = parseFloat(rating);
-    return (numericRating / 2);
+    return getRatingStars(rating);
   }
 
   getStarFillPercentage(index: number): number {
-    const rating = this.getRatingStars(this.movie.userRatings.kinopoisk);
-    const fill = rating - index;
-
-    if (fill >= 1) {
-      return 100;
-    } else if (fill > 0) {
-      return fill * 100;
-    } else {
-      return 0;
-    }
+    return getStarFillPercentage(this.movie.userRatings.kinopoisk, index);
   }
-
-  ageRatingMap: { [key: string]: string } = {
-    'G': '0+',
-    'PG': '6+',
-    'PG-13': '12+',
-    'R': '16+',
-    'NC17': '18+'
-  };
 
   getAgeRating(ageRating: string): string {
-    
-    return this.ageRatingMap[ageRating] || 'N/A';
+    return getAgeRating(ageRating);
   }
-  
+
   ngOnInit(): void {
     if (this.movie.releaseDate) {
       const match = this.movie.releaseDate.match(/\d{4}/);
@@ -67,5 +57,4 @@ export class FilmCardComponent implements OnInit, AfterViewInit {
       }
     }
   }
-
 }

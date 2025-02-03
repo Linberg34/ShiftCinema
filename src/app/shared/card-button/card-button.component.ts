@@ -1,12 +1,14 @@
-import { Component, Input, ViewEncapsulation} from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { RouterModule } from '@angular/router'; 
 
 @Component({
   selector: 'app-card-button',
-  imports: [],
+  standalone: true,
+  imports: [RouterModule], 
   templateUrl: './card-button.component.html',
-  styleUrls: ['./card-button.component.scss','../../environment/_variables.scss'],
+  styleUrls: ['./card-button.component.scss', '../../environment/_variables.scss'],
 })
-
 export class CardButtonComponent {
-  @Input() text: string = 'Подробнее';
+  @Input() text: string = '';
+  @Input() route: string = '';
 }

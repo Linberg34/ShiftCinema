@@ -22,4 +22,34 @@ export class FilmService {
       })
     );
   }
+
+  getFilmDetails(filmId: number): Observable<Film> {
+    return this.http.get<{ success: boolean; reason: string; film: Film }>(
+      `${this.apiBaseURL}/cinema/film/${filmId}`
+    ).pipe(
+      map(response => {
+        if (!response.success || !response.film) {
+          throw new Error(response.reason || 'Ошибка загрузки фильма');
+        }
+  
+        return {
+          ...response.film,
+          img: `${this.apiBaseURL}${response.film.img}`,
+        };
+      })
+    );
+  }
+
+  getSchedule(filmId: string): Observable<any> {
+    const url = `${this.apiBaseURL}/cinema/film/${filmId}/schedule`;
+    return this.http.get<any>(url).pipe(
+      map(response => {
+        if (!response.success) {
+          throw new Error(response.reason || 'Ошибка при загрузке расписания');
+        }
+        return response.schedules; 
+      })
+    );
+  }
+  
 }

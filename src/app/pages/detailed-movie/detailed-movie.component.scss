@@ -1,0 +1,265 @@
+@import '../../environment/_variables';
+
+.item-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 240px;
+    padding-right: 240px;
+    gap: 16px;
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    width: 49px;
+    line-height: 24px;
+    font-size: 16px;
+    color: $Text-Tertiary;
+}
+
+.back-button img {
+    margin-right: 16px;
+    width: 24px;
+    height: 24px;
+}
+
+
+.movie-details {
+    display: flex;
+    height: 300px;
+    width: 100%;
+    max-width: 1200px;
+    gap: 20px;
+    padding-left: 240px;
+    padding-right: 240px;
+}
+
+.movie-img {
+    position: relative;
+    height: 300px;
+    width: 300px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border: none;
+    outline: none;
+}
+
+.movie-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: $Btn-Radius $Btn-Radius 0 $Btn-Radius;
+    border: none;
+    outline: none;
+}
+
+.imgLabel {
+    color: $Text-Primary;
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    right: 0;
+    background-color: $BG-Secondary;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 8px 16px;
+    border-top-left-radius: 8px;
+}
+
+.movie-details-text {
+    display: flex;
+    flex-direction: column;
+    max-height: 300px;
+    gap: 16px;
+}
+
+.movie-title {
+
+    .movie-name {
+        font-family: 'Inter', sans-serif;
+        font-weight: bold;
+        font-size: 20px;
+        word-wrap: break-word;
+        line-height: 24px;
+        color: $Text-Primary;
+        margin: 0px;
+        white-space: nowrap;
+        max-width: 100%;
+    }
+
+    .movie-subtitle {
+        font-family: 'Inter', sans-serif;
+        flex-direction: column;
+        font-size: 14px;
+        height: 20px;
+        margin: 5px 0;
+        color: $Text-Tertiary;
+    }
+}
+
+
+.movie-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: $Text-Secondary;
+    line-height: 24px;
+    word-wrap: break-word;
+    max-width: 100%;
+}
+
+.movie-rating {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cardRatingList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 4px;
+    width: 120px;
+    height: 24px;
+}
+
+.cardRatingList li {
+    font-size: 24px;
+    color: #ccc;
+    position: relative;
+}
+
+.star-container {
+    position: relative;
+    display: inline-block;
+}
+
+.star-empty {
+    color: #ccc;
+}
+
+.star-filled {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #FDD442;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.rating-source {
+    margin-top: 10px;
+    font-size: 14px;
+
+    span {
+        font-family: 'Inter', sans-serif;
+        color: $Text-Tertiary;
+        display: block;
+    }
+}
+
+.schedule-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 240px;
+    padding-right: 240px;
+}
+
+.schedule-title {
+    font-size: 24px;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 20px;
+}
+
+.week-block {
+    display: flex;
+    
+    gap: 10px;
+    width: fit-content;
+    border-radius: $Btn-Radius;
+    background-color: #CED2DA;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.day-button {
+    border: none;
+    outline: none;
+    padding: 10px 16px;
+    font-size: 14px;
+    border-radius: $Btn-Radius;
+    color:$Text-Tertiary;
+    background-color: #CED2DA;
+    cursor: pointer;
+    &.selected {
+        
+    border: 2px solid #ccc;
+        background-color: $Bg-Primary;
+        color: $Text-Primary;
+    }
+}
+
+
+.day-button.active {
+    background-color: $Bg-Primary;
+}
+
+.time-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hall-block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hall-title {
+    font-size: 12px;
+    color: $Text-Secondary;
+}
+
+.times {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.time-button {
+    padding: 10px 16px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: $Bg-Primary;
+    cursor: pointer;
+
+    &.selected {
+        background-color: #97A1AF;
+        color: $Bg-Primary;
+    }
+}
+
+.schedule-button {
+    border: none;
+    outline: none;
+    width: 320px;
+    text-align: center;
+    border-radius: $Btn-Radius;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Inter', sans-serif;
+    color: $Bg-Primary;
+    background-color: #9534D2;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: var(--hover-color, #543aa5);
+    }
+}

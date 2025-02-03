@@ -30,6 +30,21 @@ export interface Film {
     };
 }
 
+export interface Hall {
+    name: string;
+    places: any[][];
+}
+
+export interface Seance {
+    time: string;
+    hall: Hall;
+}
+
+export interface Schedule {
+    date: string;
+    seances: Seance[];
+}
+
 export interface Person {
     id: string;
     professions: string;

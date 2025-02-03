@@ -11,7 +11,8 @@
 
         <div class="cardDescription">
             <div class="cardDescriptionText">
-                <h3 class="cardTitle" [class.marquee]="isMarquee">{{ movie.name }} ({{ getAgeRating(movie.ageRating) }})</h3>
+                <h3 class="cardTitle" [class.marquee]="isMarquee">{{ movie.name }} ({{ getAgeRating(movie.ageRating) }})
+                </h3>
                 <h4 class="cardSubTitle">Фильм</h4>
             </div>
             <div class="cardRating">
@@ -32,6 +33,7 @@
     </div>
 
     <div class="cardButton">
-        <app-card-button text="Подробнее"></app-card-button>
+        <app-card-button [route]="'/movie/' + movie.id" text="Подробнее"></app-card-button>
     </div>
+    
 </div>
