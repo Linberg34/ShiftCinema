@@ -2,8 +2,9 @@
 
 .moviesList {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
+    padding: 0px 240px  72px  240px;
     justify-items: center;
 }
 .moviesHeader{
